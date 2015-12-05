@@ -10,15 +10,15 @@ lint:
 patch: lint
 	@$(call release,patch)
 
-minor: lint 
+minor: lint
 	@$(call release,minor)
 
-major: lint 
+major: lint
 	@$(call release,major)
 
-jsx: 
+jsx:
 	@$(call lint)
-	gulp	
+	gulp
 	@$(uglify) index.js > dist/react-breadcrumbs.min.js
 
 publish:
@@ -27,7 +27,7 @@ publish:
 	@$(uglify) index.js > dist/react-breadcrumbs.min.js
 	git commit -am "`npm view . version`" --allow-empty
 	@$(call release,patch)
-	git push --tags origin HEAD:master
+	git push --tags origin HEAD:0.13
 	npm publish
 
 define release
