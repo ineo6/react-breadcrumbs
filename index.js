@@ -15,7 +15,8 @@ var Breadcrumbs = React.createClass({
         displayMissing: React.PropTypes.string,
         displayName: React.PropTypes.string,
         breadcrumbName: React.PropTypes.string,
-        excludes: React.PropTypes.arrayOf(React.PropTypes.string)
+        excludes: React.PropTypes.arrayOf(React.PropTypes.string),
+        customClass: React.PropTypes.string
     },
     contextTypes: {
         router: React.PropTypes.func.isRequired
@@ -30,6 +31,11 @@ var Breadcrumbs = React.createClass({
         if ("undefined" != typeof this.props.displayMissing) {
             displayMissing = this.props.displayMissing;
         }
+        var customClass = "breadcrumbs";
+        if ("undefined" != typeof this.props.customClass) {
+            customClass = this.props.customClass;
+        }
+
         var breadcrumbs = [];
         var _this = this;
         var routes = this.context.router.getCurrentRoutes();
@@ -84,8 +90,10 @@ var Breadcrumbs = React.createClass({
             }
             if (missingParams === false) {
                 if (i != arr.length - 1) {
-                    link = React.createElement(Link, { to: "undefined" === typeof route.name ? "/" : route.name,
-                        params: params }, name);
+                    link = React.createElement(Link, {
+                        to: "undefined" === typeof route.name ? "/" : route.name,
+                        params: params
+                    }, name);
                 } else {
                     separator = "";
 
@@ -106,7 +114,7 @@ var Breadcrumbs = React.createClass({
         });
         return React.createElement(
             "div",
-            { className: "breadcrumbs" },
+            { className: customClass },
             breadcrumbs
         );
     }
