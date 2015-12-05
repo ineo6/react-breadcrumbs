@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/svenanders/react-breadcrumbs",
   "peerDependencies": {
-    "react": "^0.13.x",
+    "react": "0.13.x||0.14.x",
     "react-router": "^0.13.x"
   },
   "devDependencies": {
