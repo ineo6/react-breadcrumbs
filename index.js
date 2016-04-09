@@ -8,7 +8,7 @@ var Link = ReactRouter.Link;
 
 var Breadcrumbs = React.createClass({
     propTypes: {
-        separator: React.PropTypes.oneOfType(React.PropTypes.string, React.PropTypes.element),
+        separator: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.element]),
         displayMissing: React.PropTypes.string,
         displayName: React.PropTypes.string,
         breadcrumbName: React.PropTypes.string,
