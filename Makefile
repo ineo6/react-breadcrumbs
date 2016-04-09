@@ -28,7 +28,7 @@ publish:
 	git commit -am "`npm view . version`" --allow-empty
 	@$(call release,patch)
 	git push --tags origin HEAD:0.13
-	npm publish
+	#npm publish
 
 define release
 	npm version $(1)

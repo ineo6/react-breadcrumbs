@@ -4,14 +4,14 @@ var React = require('react');
 var ReactRouter = require('react-router');
 var contains = require('lodash').contains;
 
-var Router = ReactRouter;
-var Route = ReactRouter.Route;
-var RouteHandler = ReactRouter.RouteHandler;
 var Link = ReactRouter.Link;
 
 var Breadcrumbs = React.createClass({
     propTypes: {
-        separator: React.PropTypes.string,
+        separator: React.PropTypes.oneOfType(
+            React.PropTypes.string,
+            React.PropTypes.element
+        ),
         displayMissing: React.PropTypes.string,
         displayName: React.PropTypes.string,
         breadcrumbName: React.PropTypes.string,
