@@ -2,7 +2,6 @@
 
 var React = require("react");
 var ReactRouter = require("react-router");
-var contains = require("lodash").contains;
 
 var Link = ReactRouter.Link;
 
@@ -71,10 +70,10 @@ var Breadcrumbs = React.createClass({
             }
             link = name;
 
-            // Don't add the excluded routes
-            if (contains(excludes, name)) {
-                return;
-            }
+            //if the name exists and it's in the excludes list exclude this route
+            if (name && excludes.some(function (item) {
+                return item === name;
+            })) return null;
 
             if (missingParams === true && displayMissing) {
                 breadcrumbs.push(React.createElement(
