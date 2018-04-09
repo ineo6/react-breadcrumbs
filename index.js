@@ -36,6 +36,7 @@ var Breadcrumbs = React.createClass({
         var _this = this;
         var routes = this.context.router.getCurrentRoutes();
         var params = this.context.router.getCurrentParams();
+        var query = this.context.router.getCurrentQuery();
 
         // Convert Object to array (can sometimes happen)
         if ("object" == typeof routes) {
@@ -86,9 +87,14 @@ var Breadcrumbs = React.createClass({
             }
             if (missingParams === false) {
                 if (i != arr.length - 1) {
+                    if (route.passQuery == false) {
+                        query = {};
+                    }
+
                     link = React.createElement(Link, {
                         to: "undefined" === typeof route.name ? "/" : route.name,
-                        params: params
+                        params: params,
+                        query: query
                     }, name);
                 } else {
                     separator = "";
