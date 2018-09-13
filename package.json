@@ -1,5 +1,5 @@
 {
-  "name": "react-breadcrumbs",
+  "name": "@unovo/react-breadcrumbs",
   "version": "0.13.9",
   "description": "Automatic breadcrumbs for react-router",
   "main": "index.js",
